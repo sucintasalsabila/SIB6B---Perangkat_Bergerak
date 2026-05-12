@@ -1,6 +1,10 @@
 # sib6bcinta
 
-Project Kelas SIB6B
+Nama Kelompok : 
+1. Sucinta Salsabila 2313086
+2. Andi Azzura Rahma 2313043
+3. Olivia Amelia 231346
+4. Lailatul Amalia 2313049
 
 ## Getting Started
 
