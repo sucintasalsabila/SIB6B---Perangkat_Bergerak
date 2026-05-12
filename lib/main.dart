@@ -30,9 +30,43 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.redAccent),
       ),
-      debugShowCheckedModeBanner: true,
-      home: ElevatedButton(onPressed: (){}, child: Text('Tombol Ok', style: TextStyle(fontSize: 50),), style: ButtonStyle(backgroundColor: WidgetStatePropertyAll (Colors.red)),),
-    );
+      debugShowCheckedModeBanner: false,
+      home: Scaffold(
+        backgroundColor: Colors.blueGrey,
+        appBar: AppBar(
+          title: Text('Apps ku'),
+          centerTitle: true,
+          backgroundColor: Colors.white,
+          foregroundColor: Colors.black87,
+          leading: Icon(Icons.account_circle, color: Colors.black87, size: 35,),
+          actions: [
+            IconButton(onPressed: (){}, icon: Icon(Icons.search, size: 25,),),
+            Padding(padding: EdgeInsets.all(3)),
+            IconButton(onPressed: (){}, icon: Icon(Icons.more_vert, size: 25,),),
+          ],
+        ),
+        bottomNavigationBar: NavigationBar(
+          backgroundColor: Colors.white,
+          indicatorColor: Colors.blueGrey,
+          labelTextStyle: WidgetStatePropertyAll(TextStyle(color: Colors.black87)),
+          destinations: const <Widget>[
+            NavigationDestination(
+              selectedIcon: Icon(Icons.home, color: Colors.black87,),
+              icon: Icon(Icons.home_outlined),
+              label: 'Home',
+            ),
+            NavigationDestination(
+              icon: Badge(child: Icon(Icons.notifications_sharp, color: Colors.black87,)),
+              label: 'Notifications',
+            ),
+            NavigationDestination(
+              icon: Badge(label: Text('2'), child: Icon(Icons.messenger_sharp, color: Colors.black87,)),
+              label: 'Messages',
+            ),
+          ],
+        ),
+      )
+    ); 
   }
 }
 
