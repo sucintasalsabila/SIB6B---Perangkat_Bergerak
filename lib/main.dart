@@ -6,7 +6,6 @@ void main() {
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
-
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -31,42 +30,60 @@ class MyApp extends StatelessWidget {
         colorScheme: .fromSeed(seedColor: Colors.redAccent),
       ),
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: Colors.blueGrey,
-        appBar: AppBar(
-          title: Text('Apps ku'),
-          centerTitle: true,
-          backgroundColor: Colors.white,
-          foregroundColor: Colors.black87,
-          leading: Icon(Icons.account_circle, color: Colors.black87, size: 35,),
-          actions: [
-            IconButton(onPressed: (){}, icon: Icon(Icons.search, size: 25,),),
-            Padding(padding: EdgeInsets.all(3)),
-            IconButton(onPressed: (){}, icon: Icon(Icons.more_vert, size: 25,),),
-          ],
-        ),
-        bottomNavigationBar: NavigationBar(
-          backgroundColor: Colors.white,
-          indicatorColor: Colors.blueGrey,
-          labelTextStyle: WidgetStatePropertyAll(TextStyle(color: Colors.black87)),
-          destinations: const <Widget>[
-            NavigationDestination(
-              selectedIcon: Icon(Icons.home, color: Colors.black87,),
-              icon: Icon(Icons.home_outlined),
-              label: 'Home',
-            ),
-            NavigationDestination(
-              icon: Badge(child: Icon(Icons.notifications_sharp, color: Colors.black87,)),
-              label: 'Notifications',
-            ),
-            NavigationDestination(
-              icon: Badge(label: Text('2'), child: Icon(Icons.messenger_sharp, color: Colors.black87,)),
-              label: 'Messages',
-            ),
-          ],
-        ),
-      )
+      home: Beranda(),
     ); 
+  }
+}
+
+class Project2 extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+    );
+  }
+}
+
+
+class Project1 extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+      backgroundColor: Colors.blueGrey,
+      appBar: AppBar(
+        title: Text('Apps ku'),
+        centerTitle: true,
+        backgroundColor: Colors.white,
+        foregroundColor: Colors.black87,
+        leading: Icon(Icons.account_circle, color: Colors.black87, size: 35,),
+        actions: [
+          IconButton(onPressed: (){}, icon: Icon(Icons.search, size: 25,),),
+          Padding(padding: EdgeInsets.all(3)),
+          IconButton(onPressed: (){}, icon: Icon(Icons.more_vert, size: 25,),),
+        ],
+      ),
+      bottomNavigationBar: NavigationBar(
+        backgroundColor: Colors.white,
+        indicatorColor: Colors.blueGrey,
+        labelTextStyle: WidgetStatePropertyAll(TextStyle(color: Colors.black87)),
+        destinations: const <Widget>[
+          NavigationDestination(
+            selectedIcon: Icon(Icons.home, color: Colors.black87,),
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
+          ),
+          NavigationDestination(
+            icon: Badge(child: Icon(Icons.notifications_sharp, color: Colors.black87,)),
+            label: 'Notifications',
+          ),
+          NavigationDestination(
+            icon: Badge(label: Text('2'), child: Icon(Icons.messenger_sharp, color: Colors.black87,)),
+            label: 'Messages',
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -115,7 +132,10 @@ class _MyHomePageState extends State<MyHomePage> {
         // TRY THIS: Try changing the color here to a specific color (to
         // Colors.amber, perhaps?) and trigger a hot reload to see the AppBar
         // change color while the other colors stay the same.
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        backgroundColor: Theme
+            .of(context)
+            .colorScheme
+            .inversePrimary,
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
@@ -142,7 +162,10 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text('You have pushed the button this many times:'),
             Text(
               '$_counter',
-              style: Theme.of(context).textTheme.headlineMedium,
+              style: Theme
+                  .of(context)
+                  .textTheme
+                  .headlineMedium,
             ),
           ],
         ),
@@ -155,3 +178,27 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+
+  class Beranda extends StatelessWidget {
+    @override
+    Widget build(BuildContext context) {
+      // TODO: implement build
+      return Scaffold(
+        backgroundColor: Colors.pinkAccent,
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              ElevatedButton(onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context) => Project1(),));
+              }, child: Text('Project1', style: TextStyle(color: Colors.white),), style: ButtonStyle(backgroundColor: WidgetStatePropertyAll(Colors.blueGrey)),),
+              Padding(padding: EdgeInsets.all(10)),
+              ElevatedButton(onPressed: () {}, child: Text('Project2')),
+              Padding(padding: EdgeInsets.all(10)),
+              ElevatedButton(onPressed: () {}, child: Text('About')),
+            ],
+          ),
+        ),
+      );
+    }
+  }
